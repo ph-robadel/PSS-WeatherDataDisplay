@@ -5,6 +5,8 @@
  */
 package br.ufes.weatherdatadisplay.view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author pedroh
@@ -99,6 +101,8 @@ public class RegistroView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbRegistros;
     // End of variables declaration//GEN-END:variables
 
-    
+    public JButton getBtnRemover() {
+        return btnRemover;
+    }
 
 }

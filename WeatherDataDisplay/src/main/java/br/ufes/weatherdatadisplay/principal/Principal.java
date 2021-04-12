@@ -1,6 +1,7 @@
 package br.ufes.weatherdatadisplay.principal;
 
-import br.ufes.weatherdatadisplay.view.PrincipalView;
+import br.ufes.weatherdatadisplay.collection.TempoCollection;
+import br.ufes.weatherdatadisplay.presenter.PrincipalPresenter;
 
 /**
  *
@@ -8,6 +9,8 @@ import br.ufes.weatherdatadisplay.view.PrincipalView;
  */
 public class Principal {
     public static void main(String[] args) {
-        PrincipalView principalView = new PrincipalView();
+        
+        TempoCollection tempos = new TempoCollection();
+        PrincipalPresenter principalPresenter = new PrincipalPresenter(tempos);
     }
 }

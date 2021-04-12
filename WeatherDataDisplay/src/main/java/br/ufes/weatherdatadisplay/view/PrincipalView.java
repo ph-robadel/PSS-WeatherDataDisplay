@@ -5,17 +5,20 @@
  */
 package br.ufes.weatherdatadisplay.view;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author pedroh
  */
 public class PrincipalView extends javax.swing.JFrame {
 
-    private final CadastroTempoView cadastroTempoView;
-    private final UltimaAtualizacaoTempoView ultimaAtualizacaoTempoView;
-    private final DadosMediosTempoView dadosMediosView;
-    private final RegistroView registroView;
-    private final ConfiguracaoDoSistemaView configuracaoDoSistemaView;
+//    private final CadastroTempoView cadastroTempoView;
+//    private final UltimaAtualizacaoTempoView ultimaAtualizacaoTempoView;
+//    private final DadosMediosTempoView dadosMediosView;
+//    private final RegistroView registroView;
+//    private final ConfiguracaoDoSistemaView configuracaoDoSistemaView;
     
     
     public PrincipalView() {
@@ -23,27 +26,27 @@ public class PrincipalView extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         this.setVisible(true);
         
-        cadastroTempoView = new CadastroTempoView();
-        this.add(cadastroTempoView);
-        this.cadastroTempoView.setLocation(15, 15);
-        
-        
-        ultimaAtualizacaoTempoView = new UltimaAtualizacaoTempoView();
-        this.add(ultimaAtualizacaoTempoView);
-        this.ultimaAtualizacaoTempoView.setLocation(15, 250);
-        
-        dadosMediosView = new DadosMediosTempoView();
-        this.add(dadosMediosView);
-        this.dadosMediosView.setLocation(280, 15);
-        
-        
-        registroView = new RegistroView();
-        this.add(registroView);
-        this.registroView.setLocation(280, 205);
-        
-        configuracaoDoSistemaView = new ConfiguracaoDoSistemaView();
-        this.add(configuracaoDoSistemaView);
-        this.configuracaoDoSistemaView.setLocation(523, 15);
+//        cadastroTempoView = new CadastroTempoView();
+//        this.add(cadastroTempoView);
+//        this.cadastroTempoView.setLocation(15, 15);
+//        
+//        
+//        ultimaAtualizacaoTempoView = new UltimaAtualizacaoTempoView();
+//        this.add(ultimaAtualizacaoTempoView);
+//        this.ultimaAtualizacaoTempoView.setLocation(15, 250);
+//        
+//        dadosMediosView = new DadosMediosTempoView();
+//        this.add(dadosMediosView);
+//        this.dadosMediosView.setLocation(280, 15);
+//        
+//        
+//        registroView = new RegistroView();
+//        this.add(registroView);
+//        this.registroView.setLocation(280, 205);
+//        
+//        configuracaoDoSistemaView = new ConfiguracaoDoSistemaView();
+//        this.add(configuracaoDoSistemaView);
+//        this.configuracaoDoSistemaView.setLocation(523, 15);
         
     }
 
@@ -56,18 +59,66 @@ public class PrincipalView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlFundo = new javax.swing.JPanel();
+        pnlRodape = new javax.swing.JPanel();
+        lbRegistros = new javax.swing.JLabel();
+        lbdRegistros = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Weather Data Display");
+
+        pnlFundo.setBackground(new java.awt.Color(153, 153, 153));
+
+        pnlRodape.setBackground(new java.awt.Color(0, 0, 0));
+
+        lbRegistros.setForeground(new java.awt.Color(255, 255, 255));
+        lbRegistros.setText("Quantidade de Registros:");
+
+        lbdRegistros.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlRodapeLayout = new javax.swing.GroupLayout(pnlRodape);
+        pnlRodape.setLayout(pnlRodapeLayout);
+        pnlRodapeLayout.setHorizontalGroup(
+            pnlRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRodapeLayout.createSequentialGroup()
+                .addContainerGap(514, Short.MAX_VALUE)
+                .addComponent(lbRegistros)
+                .addGap(18, 18, 18)
+                .addComponent(lbdRegistros)
+                .addContainerGap())
+        );
+        pnlRodapeLayout.setVerticalGroup(
+            pnlRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRodapeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlRodapeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbdRegistros)
+                    .addComponent(lbRegistros))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout pnlFundoLayout = new javax.swing.GroupLayout(pnlFundo);
+        pnlFundo.setLayout(pnlFundoLayout);
+        pnlFundoLayout.setHorizontalGroup(
+            pnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlRodape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlFundoLayout.setVerticalGroup(
+            pnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFundoLayout.createSequentialGroup()
+                .addGap(0, 412, Short.MAX_VALUE)
+                .addComponent(pnlRodape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 965, Short.MAX_VALUE)
+            .addComponent(pnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 567, Short.MAX_VALUE)
+            .addComponent(pnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -77,5 +128,18 @@ public class PrincipalView extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbRegistros;
+    private javax.swing.JLabel lbdRegistros;
+    private javax.swing.JPanel pnlFundo;
+    private javax.swing.JPanel pnlRodape;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getLbdRegistros() {
+        return lbdRegistros;
+    }
+
+    public JPanel getPnlFundo() {
+        return pnlFundo;
+    }
+
 }
