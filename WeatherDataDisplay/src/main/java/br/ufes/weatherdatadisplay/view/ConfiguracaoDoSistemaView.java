@@ -20,6 +20,7 @@ public class ConfiguracaoDoSistemaView extends javax.swing.JInternalFrame {
     public ConfiguracaoDoSistemaView() {
         initComponents();
         setVisible(true);
+        setLocation(523, 15);
     }
 
     /**

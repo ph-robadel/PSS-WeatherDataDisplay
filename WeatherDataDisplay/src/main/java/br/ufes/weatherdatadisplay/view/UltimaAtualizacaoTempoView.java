@@ -20,6 +20,7 @@ public class UltimaAtualizacaoTempoView extends javax.swing.JInternalFrame {
     public UltimaAtualizacaoTempoView() {
         initComponents();
         setVisible(true);
+        setLocation(15, 250);
     }
 
     /**

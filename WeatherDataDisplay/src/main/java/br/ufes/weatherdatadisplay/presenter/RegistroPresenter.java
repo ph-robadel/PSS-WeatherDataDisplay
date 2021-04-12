@@ -9,12 +9,13 @@ import br.ufes.weatherdatadisplay.collection.TempoCollection;
 import br.ufes.weatherdatadisplay.view.RegistroView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author pedroh
  */
-public class RegistroPresenter {
+public class RegistroPresenter implements IJInternalFramePresenter{
     private final RegistroView registroView;
     private final TempoCollection registrosTempo;
 
@@ -37,6 +38,11 @@ public class RegistroPresenter {
     
     private void removerRegistroTabela(){
         
+    }
+
+    @Override
+    public JInternalFrame getView() {
+        return this.registroView;
     }
     
 }

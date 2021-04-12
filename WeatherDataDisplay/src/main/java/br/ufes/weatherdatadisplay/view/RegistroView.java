@@ -19,6 +19,7 @@ public class RegistroView extends javax.swing.JInternalFrame {
     public RegistroView() {
         initComponents();
         setVisible(true);
+        setLocation(280, 205);
     }
 
     /**

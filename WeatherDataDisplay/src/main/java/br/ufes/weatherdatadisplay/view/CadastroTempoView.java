@@ -20,6 +20,7 @@ public class CadastroTempoView extends javax.swing.JInternalFrame {
     public CadastroTempoView() {
         initComponents();
         setVisible(true);
+        setLocation(15, 15);
     }
 
     /**

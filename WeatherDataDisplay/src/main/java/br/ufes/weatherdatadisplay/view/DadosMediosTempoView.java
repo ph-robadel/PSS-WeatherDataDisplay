@@ -16,6 +16,7 @@ public class DadosMediosTempoView extends javax.swing.JInternalFrame {
     public DadosMediosTempoView() {
         initComponents();
         setVisible(true);
+        setLocation(280, 15);
     }
 
     /**

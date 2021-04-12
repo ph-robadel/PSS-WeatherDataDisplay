@@ -3,12 +3,13 @@ package br.ufes.weatherdatadisplay.presenter;
 import br.ufes.weatherdatadisplay.model.Tempo;
 import br.ufes.weatherdatadisplay.view.UltimaAtualizacaoTempoView;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author pedroh
  */
-public class UltimaAtualizacaoTempoPresenter {
+public class UltimaAtualizacaoTempoPresenter implements IJInternalFramePresenter{
     private final UltimaAtualizacaoTempoView ultimaAtualizacaoTempoView;
 
     public UltimaAtualizacaoTempoPresenter(UltimaAtualizacaoTempoView ultimaAtualizacaoTempoView) {
@@ -21,5 +22,10 @@ public class UltimaAtualizacaoTempoPresenter {
         ultimaAtualizacaoTempoView.getLbdTemperatura().setText(String.valueOf(tempo.getTemperatura()));
         ultimaAtualizacaoTempoView.getLbdHumidade().setText(String.valueOf(tempo.getHumidade()));
         ultimaAtualizacaoTempoView.getLbdPressao().setText(String.valueOf(tempo.getPressao()));
+    }
+
+    @Override
+    public JInternalFrame getView() {
+        return this.ultimaAtualizacaoTempoView;
     }
 }

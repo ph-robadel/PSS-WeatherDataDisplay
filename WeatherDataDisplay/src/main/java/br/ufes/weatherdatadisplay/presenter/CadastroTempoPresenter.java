@@ -7,13 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author pedroh
  */
-public class CadastroTempoPresenter {
+public class CadastroTempoPresenter implements IJInternalFramePresenter{
     private final CadastroTempoView cadastroTempoView;
     private final TempoCollection tempos;
 
@@ -77,6 +78,11 @@ public class CadastroTempoPresenter {
         this.cadastroTempoView.getFtfTemperatura().setText("");
         this.cadastroTempoView.getFtfHumidade().setText("");
         this.cadastroTempoView.getFtfPressao().setText("");
+    }
+
+    @Override
+    public JInternalFrame getView() {
+        return this.cadastroTempoView;
     }
     
 }

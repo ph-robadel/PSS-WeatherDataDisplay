@@ -13,41 +13,11 @@ import javax.swing.JPanel;
  * @author pedroh
  */
 public class PrincipalView extends javax.swing.JFrame {
-
-//    private final CadastroTempoView cadastroTempoView;
-//    private final UltimaAtualizacaoTempoView ultimaAtualizacaoTempoView;
-//    private final DadosMediosTempoView dadosMediosView;
-//    private final RegistroView registroView;
-//    private final ConfiguracaoDoSistemaView configuracaoDoSistemaView;
-    
     
     public PrincipalView() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         this.setVisible(true);
-        
-//        cadastroTempoView = new CadastroTempoView();
-//        this.add(cadastroTempoView);
-//        this.cadastroTempoView.setLocation(15, 15);
-//        
-//        
-//        ultimaAtualizacaoTempoView = new UltimaAtualizacaoTempoView();
-//        this.add(ultimaAtualizacaoTempoView);
-//        this.ultimaAtualizacaoTempoView.setLocation(15, 250);
-//        
-//        dadosMediosView = new DadosMediosTempoView();
-//        this.add(dadosMediosView);
-//        this.dadosMediosView.setLocation(280, 15);
-//        
-//        
-//        registroView = new RegistroView();
-//        this.add(registroView);
-//        this.registroView.setLocation(280, 205);
-//        
-//        configuracaoDoSistemaView = new ConfiguracaoDoSistemaView();
-//        this.add(configuracaoDoSistemaView);
-//        this.configuracaoDoSistemaView.setLocation(523, 15);
-        
     }
 
     /**
