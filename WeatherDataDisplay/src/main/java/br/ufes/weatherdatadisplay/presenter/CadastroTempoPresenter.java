@@ -57,7 +57,7 @@ public class CadastroTempoPresenter implements IJInternalFramePresenter{
     }
     
     
-    public Tempo incluir(){
+    public void incluir(){
         Tempo tempo = new Tempo();
         
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -69,7 +69,7 @@ public class CadastroTempoPresenter implements IJInternalFramePresenter{
         
         tempo.setPressao(Double.parseDouble(this.cadastroTempoView.getFtfPressao().getText().replace(",", ".")));
         
-        return tempo;
+        tempos.add(tempo);
     }
     
     

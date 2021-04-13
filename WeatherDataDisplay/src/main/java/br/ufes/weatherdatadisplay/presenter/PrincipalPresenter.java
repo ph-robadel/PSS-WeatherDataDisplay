@@ -1,19 +1,15 @@
 package br.ufes.weatherdatadisplay.presenter;
 
 import br.ufes.weatherdatadisplay.collection.TempoCollection;
-import br.ufes.weatherdatadisplay.view.CadastroTempoView;
-import br.ufes.weatherdatadisplay.view.ConfiguracaoDoSistemaView;
-import br.ufes.weatherdatadisplay.view.DadosMediosTempoView;
+import br.ufes.weatherdatadisplay.observer.Observador;
 import br.ufes.weatherdatadisplay.view.PrincipalView;
-import br.ufes.weatherdatadisplay.view.RegistroView;
-import br.ufes.weatherdatadisplay.view.UltimaAtualizacaoTempoView;
 import java.util.ArrayList;
 
 /**
  *
  * @author pedroh
  */
-public class PrincipalPresenter {
+public class PrincipalPresenter implements Observador{
     private final TempoCollection registrosTempo;
     private final PrincipalView principalView;
 
@@ -33,6 +29,11 @@ public class PrincipalPresenter {
     
     public void atualizarRegistro(int quantidadeRegistro){
         principalView.getLbdRegistros().setText(String.valueOf(quantidadeRegistro));
+    }
+
+    @Override
+    public void update(TempoCollection registrosTempo) {
+        atualizarRegistro(registrosTempo.size());
     }
     
 }

@@ -25,14 +25,24 @@ public class Principal {
     public static void main(String[] args) {
         
         TempoCollection registrosTempo = new TempoCollection();
-        registrosTempo.add(new Tempo(LocalDate.now(), 15D, 78D, 95D));
+        
+        var ultimaAtualizacaoTempoPresenter = new UltimaAtualizacaoTempoPresenter(new UltimaAtualizacaoTempoView());
+        var dadosMediosTempoPresenter = new DadosMediosTempoPresenter(new DadosMediosTempoView());
+        var registroPresenter = new RegistroPresenter(new RegistroView(), registrosTempo);
+        var configuracaoDoSistemaPresenter = new ConfiguracaoDoSistemaPresenter(new ConfiguracaoDoSistemaView(), registrosTempo);
+        
         ArrayList<IJInternalFramePresenter> presenters = new ArrayList<>();
         presenters.add(new CadastroTempoPresenter(new CadastroTempoView(), registrosTempo));
-        presenters.add(new UltimaAtualizacaoTempoPresenter(new UltimaAtualizacaoTempoView()));
-        presenters.add(new DadosMediosTempoPresenter(new DadosMediosTempoView()));
-        presenters.add(new RegistroPresenter(new RegistroView(), registrosTempo));
-        presenters.add(new ConfiguracaoDoSistemaPresenter(new ConfiguracaoDoSistemaView(), registrosTempo));
+        presenters.add(ultimaAtualizacaoTempoPresenter);
+        presenters.add(dadosMediosTempoPresenter);
+        presenters.add(registroPresenter);
+        presenters.add(configuracaoDoSistemaPresenter);
         
-       new PrincipalPresenter(registrosTempo, presenters);
+        registrosTempo.add(ultimaAtualizacaoTempoPresenter);
+        registrosTempo.add(new PrincipalPresenter(registrosTempo, presenters));
+        
+        registrosTempo.add(new Tempo(LocalDate.now(), 15D, 78D, 95D));
+        registrosTempo.add(new Tempo(LocalDate.now(), 45D, 67D, 980D));
+        
     }
 }
