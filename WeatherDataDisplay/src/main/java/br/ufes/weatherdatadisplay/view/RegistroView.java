@@ -6,6 +6,7 @@
 package br.ufes.weatherdatadisplay.view;
 
 import javax.swing.JButton;
+import javax.swing.JTable;
 
 /**
  *
@@ -42,14 +43,14 @@ public class RegistroView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Data", "Temperatura", "Humidade", "Pressão"
+                "número", "Data", "Temperatura", "Humidade", "Pressão"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -60,11 +61,14 @@ public class RegistroView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbRegistros.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbRegistros);
         if (tbRegistros.getColumnModel().getColumnCount() > 0) {
+            tbRegistros.getColumnModel().getColumn(0).setResizable(false);
             tbRegistros.getColumnModel().getColumn(1).setResizable(false);
             tbRegistros.getColumnModel().getColumn(2).setResizable(false);
             tbRegistros.getColumnModel().getColumn(3).setResizable(false);
+            tbRegistros.getColumnModel().getColumn(4).setResizable(false);
         }
 
         btnRemover.setText("Remover");
@@ -105,5 +109,11 @@ public class RegistroView extends javax.swing.JInternalFrame {
     public JButton getBtnRemover() {
         return btnRemover;
     }
+
+    public JTable getTbRegistros() {
+        return tbRegistros;
+    }
+    
+    
 
 }

@@ -1,7 +1,7 @@
 package br.ufes.weatherdatadisplay.presenter;
 
-import br.ufes.weatherdatadisplay.collection.TempoCollection;
-import br.ufes.weatherdatadisplay.model.Tempo;
+import br.ufes.weatherdatadisplay.collection.RegistrosTempoCollection;
+import br.ufes.weatherdatadisplay.model.RegistroTempo;
 import br.ufes.weatherdatadisplay.view.CadastroTempoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class CadastroTempoPresenter implements IJInternalFramePresenter{
     private final CadastroTempoView cadastroTempoView;
-    private final TempoCollection tempos;
+    private RegistrosTempoCollection registros;
 
-    public CadastroTempoPresenter(CadastroTempoView cadastroTempoView, TempoCollection tempos) {
+    public CadastroTempoPresenter(CadastroTempoView cadastroTempoView, RegistrosTempoCollection registros) {
         this.cadastroTempoView = cadastroTempoView;
-        this.tempos = tempos;
+        this.registros = registros;
         
         this.cadastroTempoView.getBtnIncluir().addActionListener(new ActionListener() {
             @Override
@@ -58,18 +58,15 @@ public class CadastroTempoPresenter implements IJInternalFramePresenter{
     
     
     public void incluir(){
-        Tempo tempo = new Tempo();
-        
+        RegistroTempo registro = new RegistroTempo();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        tempo.setData(LocalDate.parse(this.cadastroTempoView.getFtfData().getText(), dtf));
         
-        tempo.setTemperatura(Double.parseDouble(this.cadastroTempoView.getFtfTemperatura().getText().replace(",", ".")));
+        registro.setData(LocalDate.parse(this.cadastroTempoView.getFtfData().getText(), dtf));
+        registro.setTemperatura(Double.parseDouble(this.cadastroTempoView.getFtfTemperatura().getText().replace(",", ".")));
+        registro.setHumidade(Double.parseDouble(this.cadastroTempoView.getFtfHumidade().getText().replace(",", ".")));
+        registro.setPressao(Double.parseDouble(this.cadastroTempoView.getFtfPressao().getText().replace(",", ".")));
         
-        tempo.setHumidade(Double.parseDouble(this.cadastroTempoView.getFtfHumidade().getText().replace(",", ".")));
-        
-        tempo.setPressao(Double.parseDouble(this.cadastroTempoView.getFtfPressao().getText().replace(",", ".")));
-        
-        tempos.add(tempo);
+        registros.add(registro);
     }
     
     

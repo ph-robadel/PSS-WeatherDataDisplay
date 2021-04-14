@@ -1,6 +1,6 @@
 package br.ufes.weatherdatadisplay.presenter;
 
-import br.ufes.weatherdatadisplay.collection.TempoCollection;
+import br.ufes.weatherdatadisplay.collection.RegistrosTempoCollection;
 import br.ufes.weatherdatadisplay.observer.Observador;
 import br.ufes.weatherdatadisplay.view.PrincipalView;
 import java.util.ArrayList;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * @author pedroh
  */
 public class PrincipalPresenter implements Observador{
-    private final TempoCollection registrosTempo;
+    private final RegistrosTempoCollection registrosTempo;
     private final PrincipalView principalView;
 
-    public PrincipalPresenter(TempoCollection registrosTempo, ArrayList<IJInternalFramePresenter> presenters) {
+    public PrincipalPresenter(RegistrosTempoCollection registrosTempo, ArrayList<IJInternalFramePresenter> presenters) {
         this.registrosTempo = registrosTempo;
         
         principalView = new PrincipalView();
@@ -32,7 +32,7 @@ public class PrincipalPresenter implements Observador{
     }
 
     @Override
-    public void update(TempoCollection registrosTempo) {
+    public void update(RegistrosTempoCollection registrosTempo) {
         atualizarRegistro(registrosTempo.size());
     }
     

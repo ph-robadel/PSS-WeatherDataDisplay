@@ -1,7 +1,7 @@
 package br.ufes.weatherdatadisplay.principal;
 
-import br.ufes.weatherdatadisplay.collection.TempoCollection;
-import br.ufes.weatherdatadisplay.model.Tempo;
+import br.ufes.weatherdatadisplay.collection.RegistrosTempoCollection;
+import br.ufes.weatherdatadisplay.model.RegistroTempo;
 import br.ufes.weatherdatadisplay.presenter.CadastroTempoPresenter;
 import br.ufes.weatherdatadisplay.presenter.ConfiguracaoDoSistemaPresenter;
 import br.ufes.weatherdatadisplay.presenter.DadosMediosTempoPresenter;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
         
-        TempoCollection registrosTempo = new TempoCollection();
+        RegistrosTempoCollection registrosTempo = new RegistrosTempoCollection();
         
         var ultimaAtualizacaoTempoPresenter = new UltimaAtualizacaoTempoPresenter(new UltimaAtualizacaoTempoView());
         var dadosMediosTempoPresenter = new DadosMediosTempoPresenter(new DadosMediosTempoView());
@@ -38,11 +38,16 @@ public class Principal {
         presenters.add(registroPresenter);
         presenters.add(configuracaoDoSistemaPresenter);
         
+        // Adicionando os Observadores
         registrosTempo.add(ultimaAtualizacaoTempoPresenter);
+        registrosTempo.add(dadosMediosTempoPresenter);
+        registrosTempo.add(registroPresenter);
+        registrosTempo.add(configuracaoDoSistemaPresenter);
         registrosTempo.add(new PrincipalPresenter(registrosTempo, presenters));
         
-        registrosTempo.add(new Tempo(LocalDate.now(), 15D, 78D, 95D));
-        registrosTempo.add(new Tempo(LocalDate.now(), 45D, 67D, 980D));
+        registrosTempo.add(new RegistroTempo(LocalDate.now(), 15D, 70D, 95D));
+        registrosTempo.add(new RegistroTempo(LocalDate.now(), 20D, 65D, 980D));
+        registrosTempo.add(new RegistroTempo(LocalDate.now().plusDays(-1), 25D, 60D, 100D));
         
     }
 }

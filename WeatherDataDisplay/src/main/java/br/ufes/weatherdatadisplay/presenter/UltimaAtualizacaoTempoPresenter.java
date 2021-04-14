@@ -1,7 +1,7 @@
 package br.ufes.weatherdatadisplay.presenter;
 
-import br.ufes.weatherdatadisplay.collection.TempoCollection;
-import br.ufes.weatherdatadisplay.model.Tempo;
+import br.ufes.weatherdatadisplay.collection.RegistrosTempoCollection;
+import br.ufes.weatherdatadisplay.model.RegistroTempo;
 import br.ufes.weatherdatadisplay.observer.Observador;
 import br.ufes.weatherdatadisplay.view.UltimaAtualizacaoTempoView;
 import java.time.format.DateTimeFormatter;
@@ -18,12 +18,19 @@ public class UltimaAtualizacaoTempoPresenter implements IJInternalFramePresenter
         this.ultimaAtualizacaoTempoView = ultimaAtualizacaoTempoView;
     }
     
-    public void atualizarCampos(Tempo tempo){
+    public void atualizarCampos(RegistroTempo tempo){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         ultimaAtualizacaoTempoView.getLbdData().setText(tempo.getData().format(dtf));
-        ultimaAtualizacaoTempoView.getLbdTemperatura().setText(String.valueOf(tempo.getTemperatura()));
-        ultimaAtualizacaoTempoView.getLbdHumidade().setText(String.valueOf(tempo.getHumidade()));
-        ultimaAtualizacaoTempoView.getLbdPressao().setText(String.valueOf(tempo.getPressao()));
+        ultimaAtualizacaoTempoView.getLbdTemperatura().setText(String.format("%.2f", tempo.getTemperatura()));
+        ultimaAtualizacaoTempoView.getLbdHumidade().setText(String.format("%.2f", tempo.getHumidade()));
+        ultimaAtualizacaoTempoView.getLbdPressao().setText(String.format("%.2f", tempo.getPressao()));
+    }
+    
+    public void limparCampos(){
+        ultimaAtualizacaoTempoView.getLbdData().setText("");
+        ultimaAtualizacaoTempoView.getLbdTemperatura().setText("");
+        ultimaAtualizacaoTempoView.getLbdHumidade().setText("");
+        ultimaAtualizacaoTempoView.getLbdPressao().setText("");
     }
 
     @Override
@@ -32,8 +39,12 @@ public class UltimaAtualizacaoTempoPresenter implements IJInternalFramePresenter
     }
 
     @Override
-    public void update(TempoCollection registrosTempo) {
-        var ultimoRegistro = registrosTempo.getUltimo();
-        atualizarCampos(ultimoRegistro);
+    public void update(RegistrosTempoCollection registrosTempo) {
+        try{
+            var ultimoRegistro = registrosTempo.getUltimo();
+            atualizarCampos(ultimoRegistro);
+        }catch(RuntimeException re){
+            limparCampos();
+        }
     }
 }

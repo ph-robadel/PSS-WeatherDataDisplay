@@ -1,6 +1,6 @@
 package br.ufes.weatherdatadisplay.observer;
 
-import br.ufes.weatherdatadisplay.collection.TempoCollection;
+import br.ufes.weatherdatadisplay.collection.RegistrosTempoCollection;
 
 /**
  *
@@ -8,6 +8,6 @@ import br.ufes.weatherdatadisplay.collection.TempoCollection;
  */
 public interface Observador {
     
-    public void update(TempoCollection registrosTempo);
+    public void update(RegistrosTempoCollection registrosTempo);
     
 }
